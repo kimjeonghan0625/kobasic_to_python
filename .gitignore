@@ -1,0 +1,4 @@
+__tests__
+.vscode
+compile-run.sh
+out.py
