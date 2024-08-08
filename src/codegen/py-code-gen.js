@@ -2,8 +2,8 @@ const kobParser = require("../parser/kob-parser");
 
 class PyCodeGen {
   //  indent는 파이썬 코드에서 들여쓰기를 몇 칸 할 것인지 결정한다
-  constructor({ indent = 4 }) {
-    this.indent = indent;
+  constructor() {
+    this.indent = 4;
     this.forStack = []; // [forLineNum, forStmtCode]
     this.linesInFor = [];
     this.midList = [];
@@ -25,7 +25,7 @@ class PyCodeGen {
     this.lineNums = [];
     ast.forEach((l) => this.lineNums.push(Number(l.number)));
     const pyCode = this.genPyCode(ast);
-    return { ast, pyCode };
+    return pyCode;
   }
 
   // 생성 로직
